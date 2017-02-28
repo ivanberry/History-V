@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史记录</title>
+</head>
+<body id="container">
+    <main id="history">
+        <ul id="lists">
+            <li v-for="item in items">
+                {{ item.id }}
+            </li>
+        </ul> 
+    </main>
+<script src="./scripts/vue.js"></script>
+<script src="./scripts/history.js"></script>
+</body>
+</html>
