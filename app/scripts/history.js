@@ -5,7 +5,7 @@ function getAllHistory() {
 
     //一周时间
     let endTime = new Date().valueOf();
-    let startTime = endTime - 1000 * 60 * 24 * 7;
+    let startTime = endTime - 1000 * 60 * 60 * 24 * 7;
 
     //默认查询参数
     let defaults = {
@@ -34,7 +34,6 @@ function getAllHistory() {
         return source;
     }
 
-    debugger;
     chrome.history.search(options, (result) => {
         // console.table(result);
         // converteData(result, renderChart);
