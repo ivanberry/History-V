@@ -116,4 +116,6 @@ function renderChart(conf) {
     myChart.setOption(option);
 }
 
+let calendar = flatpickr('.time');
+
 getAllHistory();
