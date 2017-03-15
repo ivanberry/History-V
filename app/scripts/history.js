@@ -18,6 +18,7 @@ function getAllHistory() {
         endTime: endTime
     };
 
+    //参数为空
     arguments[0] ? arguments[0] : options = defaults;
 
     if (arguments[0] && _typeof(arguments[0]) === 'object') {
@@ -116,6 +117,24 @@ function renderChart(conf) {
     myChart.setOption(option);
 }
 
-let calendar = flatpickr('.time');
+let calendar = flatpickr('.time',{
+    defaultDate: 'today',
+    dataFormat: 'U',
+    mode: 'range',
+    onChange: (selectedDates, dataStr, instance) => {
+        //return range timestamps
+        let startTime, endTime;
+        for (let i = 0; i < selectedDates.length; i++) {
+            if (selectedDates[i]) {
+                startTime = selectedDates[0].getTime();
+                endTime = selectedDates[1].getTime();
+            }
+        }
+        getAllHistory({
+            startTime: startTime,
+            endTime: endTime
+        });
+    }
+});
 
 getAllHistory();
